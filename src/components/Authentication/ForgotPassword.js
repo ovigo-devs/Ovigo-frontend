@@ -7,6 +7,7 @@ import toast from "react-hot-toast";
 import { HiOutlineMail } from "react-icons/hi";
 
 const ForgotPassword = () => {
+  
   const [reSendPassword, setreSendPassword] = useState(true);
   const {
     register,
@@ -93,7 +94,7 @@ const ForgotPassword = () => {
                   We have sent you a link
                 </p>
                 <p className="text-[#475467] text-base font-light">
-                  To reset password at <Link href="/reset-password">Link</Link>
+                  To reset password at link
                 </p>
               </div>
             )}

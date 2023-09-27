@@ -2,6 +2,7 @@
 // next import
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 // react import
 import { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -11,6 +12,7 @@ import toast from "react-hot-toast";
 import { BiHide, BiLockAlt, BiShow } from "react-icons/bi";
 
 const ResetPassword = () => {
+  const router = useRouter();
   const [isResetPassword, setIsResetPassword] = useState(true);
   const [password, setPassword] = useState(true);
   const [newPassword, setNewPassword] = useState(true);
@@ -37,6 +39,7 @@ const ResetPassword = () => {
               icon: "👏",
             });
             setIsResetPassword(false);
+            router.push("/login");
           }
         });
     } else {

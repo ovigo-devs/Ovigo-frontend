@@ -35,20 +35,28 @@ const VerifyOtp = ({ email }) => {
       });
   };
 
-  const handleResendOtp = (req, res) => {
-    const resentData = { email };
+  const handleResendOtp = (email) => {
+    console.log("email", email);
+    // const resentData = { email };
     fetch("http://159.223.78.171:5000/usersReg/resendOTP", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(resentData),
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(email),
     })
       .then((response) => response.json())
       .then((verifyData) => {
-        toast(verifyData.message, {
-          icon: "👏",
-        });
+        console.log(verifyData);
+
+        if (verifyData?.data.modifiedCount > 0) {
+          toast.success(verifyData.message, {
+            icon: "👏",
+          });
+        } else {
+          toast.error("Something wrong");
+        }
       });
   };
+
   return (
     <div className="container">
       <div className="flex items-center justify-center pt-7 pb-20">
@@ -123,7 +131,7 @@ const VerifyOtp = ({ email }) => {
               </p>
               <p
                 className="text-[#0A7B76] font-medium cursor-pointer"
-                onClick={() => handleResendOtp()}
+                onClick={() => handleResendOtp(email)}
               >
                 Resend
               </p>
