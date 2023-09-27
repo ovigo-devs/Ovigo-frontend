@@ -1,10 +1,8 @@
 import { AuthContext } from "@/Context/AuthProvider";
-import Link from "next/link";
 import { useRouter } from "next/router";
 import { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
-import { BiEdit } from "react-icons/bi";
 
 const ProfileInformationInput = () => {
   const [selectedGender, setSelectedGender] = useState("");
@@ -59,9 +57,8 @@ const ProfileInformationInput = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        if (data?.status == "Successfully Updated") {
+        if (data?.data?.modifiedCount > 0) {
           reset();
-
           toast.success("Information Updated");
           router.push("/my-account");
         } else {

@@ -3,8 +3,8 @@ import Link from "next/link";
 
 const TicketBanner = () => {
   return (
-    <div>
-      <div className="banner rounded-xl lg:py-20 lg:px-24 p-5 relative container">
+    <div className="container">
+      <div className="banner rounded-xl lg:py-20 lg:px-24 p-5 relative">
         <div className="">
           <div className="flex items-center mb-5 flex-col ">
             <div className="text-center">

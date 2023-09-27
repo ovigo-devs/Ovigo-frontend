@@ -1,4 +1,4 @@
-import AuthProvider, { AuthContext } from "@/Context/AuthProvider";
+import AuthProvider from "@/Context/AuthProvider";
 import "@/styles/globals.css";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
